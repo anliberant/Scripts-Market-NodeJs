@@ -1,0 +1,55 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Flippy Scripts</a>
+        <ul class="right hide-on-med-and-down">
+            {{#if isHome}}
+            <li class="active"><a href="/">Home</a></li>
+            {{else}}
+            <li><a href="/">Home</a></li>
+            {{/if}}
+
+            {{#if isScripts}}
+            <li class="active"><a href="/scripts">Scripts</a></li>
+            {{else}}
+            <li><a href="/scripts">Scripts</a></li>
+            {{/if}}
+
+            {{#if isAuth}}
+            {{#if isAdd}}
+            <li class="active"><a href="/add">Add Script</a></li>
+            {{else}}
+            <li><a href="/add">Add Script</a></li>
+            {{/if}}
+
+            {{#if isProfile}}
+            <li class="active"><a href="/profile">Profile</a></li>
+            {{else}}
+            <li><a href="/profile">Profile</a></li>
+            {{/if}}
+
+            {{#if isCart}}
+            <li class="active"><a href="/cart">Cart</a></li>
+            {{else}}
+            <li><a href="/cart">Cart</a></li>
+            {{/if}}
+
+            {{#if isOrder}}
+            <li class="active"><a href="/orders">Orders</a></li>
+            {{else}}
+            <li><a href="/orders">Orders</a></li>
+            {{/if}}
+            <li><a href="/auth/logout">Logout</a></li>
+            {{else}}
+            {{#if isLogin}}
+            <li class="active"><a href="/auth/login#login">Login</a></li>
+            {{else}}
+            <li><a href="/auth/login">Login</a></li>
+            {{/if}}
+            {{/if}}
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>

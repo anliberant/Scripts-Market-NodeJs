@@ -1,0 +1,37 @@
+<h1>Scripts</h1>
+
+{{#if scripts.length}}
+{{#each scripts}}
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div class="card hoverable">
+            <div class="card-image">
+                <img src="{{img}}" alt="{{title}}">
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{title}}</span>
+                <p>{{description}}</p>
+                <p class="price">{{price}}</p>
+            </div>
+            <div class="card-action actions">
+                <a href="/scripts/{{_id}}" target="_blank">Open script</a>
+                {{#if @root.isAuth}}
+                {{#ifeq userId._id @root.userId}}
+                <a href="/scripts/{{_id}}/edit?allow=true" target="_blank">Edit script</a>
+                {{/ifeq}}
+                <form action="/cart/add" method="post">
+                    <input type="hidden" name="id" value="{{_id}}">
+                    <input type="hidden" name="_csrf" value="{{@root.csrf}}">
+                    <button class="btn btn-primary #29b6f6 light-blue lighten-1">Buy</button>
+                </form>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{else}}
+
+
+<p>Not scripts yet available</p>
+{{/if}}

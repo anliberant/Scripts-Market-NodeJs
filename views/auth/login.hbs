@@ -1,0 +1,63 @@
+<div class="auth">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs #00e5ff cyan accent-3">
+                <li class="tab col s6"><a class="active" href="#login">Login</a></li>
+                <li class="tab col s6"><a href="#register">Register</a></li>
+            </ul>
+        </div>
+        <div id="login" class="col s6 offset-s3">
+            {{#if loginError}}
+            <p class="alert">{{loginError}}</p>
+            {{/if}}
+            <h1>Login</h1>
+            <form action="/auth/login" method="post">
+                <div class="input-field">
+                    <input placeholder="Email" name="email" id="email" type="text" class="validate" required>
+                    <label for="email">Email</label>
+                    <span class="helper-text" data-error="wrong email"></span>
+                </div>
+                <div class="input-field">
+                    <input placeholder="Password" name="password" id="password" type="text" class="validate" required>
+                    <label for="password">Password</label>
+                    <span class="helper-text" data-error="wrong password"></span>
+                </div>
+
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <p><a href="/auth/reset">Forgot Password?</a></p>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </form>
+        </div>
+        <div id="register" class="col s6 offset-s3">
+            {{#if registerError}}
+            <p class="alert">{{registerError}}</p>
+            {{/if}}
+            <h1>Register</h1>
+            <form action="/auth/register" method="post">
+                <div class="input-field">
+                    <input placeholder="Email" name="email" id="remail" type="text" class="validate" required>
+                    <label for="email">Email</label>
+                    <span class="helper-text" data-error="wrong email"></span>
+                </div>
+                <div class="input-field">
+                    <input placeholder="Password" name="password" id="rpassword" type="text" class="validate" required>
+                    <label for="rpassword">Password</label>
+                    <span class="helper-text" data-error="wrong password"></span>
+                </div>
+                <div class="input-field">
+                    <input placeholder="Confirm Password" name="confirm" id="confirm" type="text" class="validate"
+                        required>
+                    <label for="confirm">Confirm Password</label>
+                    <span class="helper-text" data-error="wrong password"></span>
+                </div>
+                <div class="input-field">
+                    <input placeholder="Input name" name="name" id="name" type="text" class="validate" required>
+                    <label for="name">Name</label>
+                    <span class="helper-text" data-error="wrong name"></span>
+                </div>
+                <input type="hidden" name="_csrf" value="{{csrf}}">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
